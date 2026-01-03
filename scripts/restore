@@ -1,6 +1,5 @@
 #!/bin/bash
 
-source ../settings/scripts/_common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
@@ -34,7 +33,7 @@ yunohost service add $app --description="Streama media system" --log="/var/log/$
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
-ynh_systemctl --service=$app --action="start" --log_path=systemd --wait_until="Grails application running at"
+ynh_systemctl --service=$app --action="start"
 
 ynh_systemctl --service=nginx --action=reload
 
